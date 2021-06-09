@@ -1,19 +1,42 @@
 {
-  "name": "bind-customer-example",
-  "version": "0.1.0",
+  "name": "identity-provider-example",
+  "version": "1.0.0",
   "private": true,
+  "author": "m.walaszczyk@livechat.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "db:migrate": "node ./database/scripts/migrate.js",
+    "db:print": "node ./database/scripts/print.js"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.3",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "bcrypt": "^5.0.1",
+    "cookie": "^0.4.1",
+    "formik": "^2.2.9",
+    "framer-motion": "^4",
+    "isomorphic-fetch": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
     "next": "10.2.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2",
+    "swr": "^0.5.6",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cookie": "^0.4.0",
+    "@types/isomorphic-fetch": "^0.0.35",
+    "@types/jsonwebtoken": "^8.5.1",
     "@types/react": "17.0.8",
+    "@types/sqlite3": "^3.1.7",
+    "@types/uuid": "^8.3.0",
     "typescript": "4.3.2"
   }
 }
