@@ -4,6 +4,8 @@ type ResponseData = {
   msg: string
 }
 
-export default (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
+function status(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
   res.status(200).json({ msg: 'ok' })
 }
+
+export default status

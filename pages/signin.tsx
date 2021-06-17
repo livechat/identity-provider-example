@@ -59,7 +59,7 @@ export default function SigInp() {
             </Form>
           )}
         </Formik>
-        <Link href="/signup">
+        <Link passHref href="/signup">
           <UILink mt={2}>Sign up</UILink>
         </Link>
       </Flex>

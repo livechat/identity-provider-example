@@ -67,7 +67,7 @@ export default function SignUp() {
             </Form>
           )}
         </Formik>
-        <Link href="/signin">
+        <Link passHref href="/signin">
           <UILink mt={2}>Sign in</UILink>
         </Link>
       </Flex>
