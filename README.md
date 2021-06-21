@@ -11,17 +11,27 @@ Thanks to maintaining the conection between application user and LiveChat Custom
 
 ## Local configuration
 
-In order to properly run an app locally create a simple configuration file `.env.local`
+### Create LiveChat integration
+
+In order to succesfully run Customer authorization for LiveChat licencse the custom integration application needs to be created on that license. To do so go to [Developers Console](https://developers.livechat.com/console), create new application and then follow the [Step 1 Configure the Authorization building block](https://developers.labs.livechat.com/docs/authorization/authorization-in-practice/#step-1-configure-the-authorization-building-block) instructions.
+
+**Remember that you do not need to specify any special _Access scopes_**
+
+### Create configuration file
+
+To properly run an app locally create a simple configuration file `.env.local` at the top of the project directory with the following content:
 
 ```env
-SECRET=<secret used as jwt signature>
-NEXT_PUBLIC_LC_LICENSE_ID=<LiveChat license id>
-LC_CLIENT_ID=<app client_id from developers.livechat.com>
-
-LC_REDIRECT_URI=http://localhost:3000
-LC_API_URL=https://api.livechatinc.com/v3.3
-LC_ACCOUNTS_URL=https://accounts.livechat.com
+SECRET=''
+LC_CLIENT_ID=''
+NEXT_PUBLIC_LC_LICENSE_ID=''
 ```
+
+Replace missing values with:
+
+- `SECRET`: secret used as [JWT](https://jwt.io/introduction) signature, for example [Random UUID](https://www.uuidgenerator.net/version4)
+- `LC_CLIENT_ID`: integration's client_id from [Developers Console](https://developers.livechat.com/console)
+- `NEXT_PUBLIC_LC_LICENSE_ID`: LiveChat license id
 
 ## Getting Started
 
