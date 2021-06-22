@@ -45,8 +45,7 @@ async function signup(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
 
     const user = await db.get<User>('select * from Users where id = ?', [id])
     if (!user) {
-      res.status(500).end()
-      return
+      throw new Error('User can not be created in DB')
     }
 
     const { entityId, cst, accessToken } = await getCustomerToken({
@@ -60,8 +59,7 @@ async function signup(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
 
     const customer = await db.get<LiveChatCustomer>('select * from LiveChatCustomers where id = ?', [entityId])
     if (!customer) {
-      res.status(500).end()
-      return
+      throw new Error('LiveChatCustomer can not be created in DB')
     }
 
     await fetch(
@@ -82,7 +80,8 @@ async function signup(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
       name: user.name,
       lastname: user.lastname,
     })
-  } catch {
+  } catch (error) {
+    console.log(`\nError: POST /api/signup\n${error.message}\n`)
     res.status(500).end()
   }
 }

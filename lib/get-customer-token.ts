@@ -35,6 +35,11 @@ export async function getCustomerToken(options: Options): Promise<TokenResult> {
     }),
   })
 
+  if (!resp.ok) {
+    const { exception_description } = await resp.json()
+    throw new Error(exception_description)
+  }
+
   const data = await resp.json()
   const { __lc_cst } = cookie.parse(cookie.splitCookiesString(resp.headers.get('set-cookie')!), { map: true })
 

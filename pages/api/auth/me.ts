@@ -35,7 +35,8 @@ async function me(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
       name: user.name,
       lastname: user.lastname,
     })
-  } catch {
+  } catch (error) {
+    console.log(`\nError: POST /api/me\n${error.message}\n`)
     res.status(401).end()
   }
 }

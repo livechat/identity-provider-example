@@ -13,9 +13,12 @@ Thanks to maintaining the conection between application user and LiveChat Custom
 
 ### Create LiveChat integration
 
-In order to succesfully run Customer authorization for LiveChat licencse the custom integration application needs to be created on that license. To do so go to [Developers Console](https://developers.livechat.com/console), create new application and then follow the [Step 1 Configure the Authorization building block](https://developers.labs.livechat.com/docs/authorization/authorization-in-practice/#step-1-configure-the-authorization-building-block) instructions.
+In order to succesfully run Customer authorization for LiveChat licencse the custom integration application needs to be created on that license. To do so go to [Developers Console](https://developers.livechat.com/console), create new application and then follow the [Step 1 Configure the Authorization building block](https://developers.livechat.com/docs/authorization/authorization-in-practice/#step-1-configure-the-authorization-building-block) instructions.
 
-**Remember that you do not need to specify any special _Access scopes_**
+**Remember for Authorization building block:**
+
+- no special _Access scopes_ needs to be specify
+- the _Redirect URI whitelist_ needs to contain a `http://localhost:3000` address
 
 ### Create configuration file
 
