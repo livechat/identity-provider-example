@@ -33,6 +33,13 @@ async function signup(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
       return
     }
 
+    const { entityId, cst, accessToken } = await getCustomerToken({
+      clientId: process.env.LC_CLIENT_ID!,
+      redirectUri: process.env.LC_REDIRECT_URI!,
+      serverAddress: process.env.LC_ACCOUNTS_URL!,
+      licenseId: process.env.NEXT_PUBLIC_LC_LICENSE_ID!,
+    })
+
     const id = uuid()
     const hashedPassword = await bcrypt.hash(password, 10)
     await db.run('insert into Users (id, email, name, lastname, password) values (?, ?, ?, ?, ?)', [
@@ -45,21 +52,14 @@ async function signup(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
 
     const user = await db.get<User>('select * from Users where id = ?', [id])
     if (!user) {
-      throw new Error('User can not be created in DB')
+      throw new Error('User could not be created in DB')
     }
-
-    const { entityId, cst, accessToken } = await getCustomerToken({
-      clientId: process.env.LC_CLIENT_ID!,
-      redirectUri: process.env.LC_REDIRECT_URI!,
-      serverAddress: process.env.LC_ACCOUNTS_URL!,
-      licenseId: process.env.NEXT_PUBLIC_LC_LICENSE_ID!,
-    })
 
     await db.run('insert into LiveChatCustomers (id, cst, userId) values (?, ?, ?)', [entityId, cst, user.id])
 
     const customer = await db.get<LiveChatCustomer>('select * from LiveChatCustomers where id = ?', [entityId])
     if (!customer) {
-      throw new Error('LiveChatCustomer can not be created in DB')
+      throw new Error('LiveChatCustomer could not be created in DB')
     }
 
     await fetch(
