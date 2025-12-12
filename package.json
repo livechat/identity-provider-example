@@ -12,18 +12,18 @@
     "db:print": "node ./database/scripts/print.js"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.3",
+    "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "bcrypt": "^5.0.1",
     "cookie": "^0.4.1",
-    "formik": "^2.2.9",
+    "formik": "^2.4.9",
     "framer-motion": "^4",
     "isomorphic-fetch": "^3.0.0",
     "jsonwebtoken": "^9.0.0",
-    "next": "13.5.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "next": "14.2.35",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "set-cookie-parser": "^2.4.8",
     "sqlite": "^4.0.23",
     "sqlite3": "^5.1.5",
@@ -36,12 +36,13 @@
     "@types/cookie": "^0.4.0",
     "@types/isomorphic-fetch": "^0.0.35",
     "@types/jsonwebtoken": "^8.5.1",
-    "@types/react": "17.0.8",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "@types/set-cookie-parser": "^2.4.0",
     "@types/sqlite3": "^3.1.7",
     "@types/uuid": "^8.3.0",
-    "eslint": "^7.28.0",
-    "eslint-config-next": "^11.0.0",
-    "typescript": "4.3.2"
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35",
+    "typescript": "4.9.5"
   }
 }
