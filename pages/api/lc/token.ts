@@ -65,7 +65,7 @@ async function token(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
       licenseId: Number(process.env.NEXT_PUBLIC_LC_LICENSE_ID!),
     })
   } catch (error) {
-    console.log(`\nError: GET /api/token\n${error.message}\n`)
+    console.log(`\nError: GET /api/token\n${error instanceof Error ? error.message : String(error)}\n`)
     res.status(401).end()
   }
 }

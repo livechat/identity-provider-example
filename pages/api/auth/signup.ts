@@ -81,7 +81,7 @@ async function signup(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
       lastname: user.lastname,
     })
   } catch (error) {
-    console.log(`\nError: POST /api/signup\n${error.message}\n`)
+    console.log(`\nError: POST /api/signup\n${error instanceof Error ? error.message : String(error)}\n`)
     res.status(500).end()
   }
 }

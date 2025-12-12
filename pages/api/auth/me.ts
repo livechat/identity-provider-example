@@ -36,7 +36,7 @@ async function me(req: NextApiRequest, res: NextApiResponse<ResponseBody>) {
       lastname: user.lastname,
     })
   } catch (error) {
-    console.log(`\nError: POST /api/me\n${error.message}\n`)
+    console.log(`\nError: POST /api/me\n${error instanceof Error ? error.message : String(error)}\n`)
     res.status(401).end()
   }
 }
